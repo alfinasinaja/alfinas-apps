@@ -2,19 +2,19 @@
   "site": {
     "name": "Alfinas Apps",
     "title": "Aplikasi yang sedang aku kembangkan",
-    "subtitle": "Lihat fitur tiap aplikasi, lalu dukung pengembangannya lewat donasi QRIS yang sukarela.",
-    "footerNote": "Aplikasi tidak resmi tidak berafiliasi dengan UNPAM. Donasi bersifat sukarela."
+    "subtitle": "Lihat fitur tiap aplikasi, lalu dukung pengembangannya lewat Traktir kopi QRIS yang sukarela.",
+    "footerNote": "Aplikasi tidak resmi tidak berafiliasi dengan UNPAM. Traktir kopi bersifat sukarela."
   },
   "donation": {
     "heading": "Dukung pengembangannya",
-    "intro": "Donasi sukarela lewat QRIS. Nominal bebas, sesuai kemampuan kamu.",
+    "intro": "Traktir kopi sukarela lewat QRIS. Nominal bebas, sesuai kemampuan kamu.",
     "whatsappNumber": "6285719789571",
     "qrisStatic": "00020101021126570011ID.DANA.WWW011893600915303608816102090360881610303UMI51440014ID.CO.QRIS.WWW0215ID10266177514600303UMI5204581253033605802ID5924KERUPUK ALFINAS, Makanan6005Bogor6105166206304988A",
     "presetAmounts": [5000, 10000, 15000],
     "customLabel": "Custom",
     "donationStatus": [
-      { "value": "donated", "label": "Sudah donasi" },
-      { "value": "not-yet", "label": "Belum donasi" }
+      { "value": "donated", "label": "Sudah Traktir kopi" },
+      { "value": "not-yet", "label": "Belum Traktir kopi" }
     ],
     "minAmount": 1000,
     "maxAmount": 10000000,

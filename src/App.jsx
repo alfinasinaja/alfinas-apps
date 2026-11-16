@@ -51,7 +51,7 @@ function buildWhatsAppUrl({ number, app, name, email, device, statusLabel, donat
     'Halo kak,',
     donated
       ? `saya ingin mendukung aplikasi ${app.name}.`
-      : `saya ingin mendukung aplikasi ${app.name}, tapi belum donasi.`,
+      : `saya ingin mendukung aplikasi ${app.name}, tapi belum traktir kopi.`,
     '',
     `Nama: ${name}`,
     `Email: ${email}`,
@@ -63,8 +63,8 @@ function buildWhatsAppUrl({ number, app, name, email, device, statusLabel, donat
   if (donated) {
     lines.push(
       '',
-      `saya izin berkontribusi untuk donasi ${amount ? `sebesar *${rupiah(amount)}*` : 'dengan nominal bebas'}`,
-      'Berikut saya lampirkan bukti donasinya yaa kak',
+      `saya izin berkontribusi untuk traktir kopi ${amount ? `sebesar *${rupiah(amount)}*` : 'dengan nominal bebas'}`,
+      'Berikut saya lampirkan bukti traktir kopinya yaa kak',
     );
   }
   return `https://wa.me/${number}?text=${encodeURIComponent(lines.join('\n'))}`;
@@ -127,7 +127,7 @@ function Donation({ donation, apps, selectedId, onSelect }) {
     !app && 'pilih aplikasi',
     !trimmedName && 'nama',
     !EMAIL_RE.test(trimmedEmail) && 'email yang valid',
-    !statusItem && 'status donasi',
+    !statusItem && 'status traktir kopi',
   ].filter(Boolean);
   const ready = missing.length === 0;
 
@@ -148,7 +148,7 @@ function Donation({ donation, apps, selectedId, onSelect }) {
   }
 
   return (
-    <section id="donasi" className="wrap block">
+    <section id="traktir kopi" className="wrap block">
       <h2 className="h2">{donation.heading}</h2>
       <p className="lead">{donation.intro}</p>
 
@@ -205,7 +205,7 @@ function Donation({ donation, apps, selectedId, onSelect }) {
               <p className="note">{donation.deviceNote}</p>
             </div>
             <fieldset className="status">
-              <legend className="step-label">Status donasi</legend>
+              <legend className="step-label">Status traktir kopi</legend>
               {donation.donationStatus.map((s) => (
                 <label className="radio" key={s.value}>
                   <input type="radio" name="status" value={s.value}
@@ -217,18 +217,18 @@ function Donation({ donation, apps, selectedId, onSelect }) {
           </div>
 
           <div className="clay">
-            <div className="step"><span className="num">3</span><span className="step-title">Donasi lewat QRIS</span></div>
+            <div className="step"><span className="num">3</span><span className="step-title">Traktir Kopi lewat QRIS</span></div>
             <QrisPayment donation={donation} onAmountChange={setAmount} />
           </div>
         </div>
 
         <div className="clay confirm">
-          <div className="step"><span className="num">4</span><span className="step-title">Konfirmasi donasi</span></div>
+          <div className="step"><span className="num">4</span><span className="step-title">Konfirmasi Traktir</span></div>
           <button className="btn btn-block" type="submit" disabled={!ready}>
             {!ready
               ? 'Lengkapi data untuk konfirmasi'
               : donated
-                ? `Konfirmasi donasi untuk ${app.name} sebagai ${trimmedName} (${trimmedEmail})`
+                ? `Konfirmasi traktir untuk ${app.name} sebagai ${trimmedName} (${trimmedEmail})`
                 : `Kirim data untuk ${app.name} sebagai ${trimmedName} (${trimmedEmail})`}
           </button>
           <p className="note" aria-live="polite">
@@ -236,7 +236,7 @@ function Donation({ donation, apps, selectedId, onSelect }) {
               ? `Belum lengkap: ${missing.join(', ')}.`
               : donated
                 ? 'Pesan akan dibuka di WhatsApp. Lampirkan bukti transfer QRIS di sana.'
-                : 'Pesan akan dibuka di WhatsApp. Kamu bisa donasi kapan saja.'}
+                : 'Pesan akan dibuka di WhatsApp. Kamu bisa traktir kopi kapan saja.'}
           </p>
         </div>
       </form>
@@ -254,7 +254,7 @@ export default function App() {
 
   function pick(id) {
     setSelectedId(id);
-    document.getElementById('donasi')?.scrollIntoView();
+    document.getElementById('traktir kopi')?.scrollIntoView();
   }
 
   return (
@@ -270,7 +270,7 @@ export default function App() {
           </button>
           <div id="site-menu" className="links">
             {apps.map((a) => <a key={a.id} href={`#${a.id}`} onClick={closeMenu}>{a.navLabel}</a>)}
-            <a className="pill" href="#donasi" onClick={closeMenu}>Donasi</a>
+            <a className="pill" href="#traktir kopi" onClick={closeMenu}>traktir kopi</a>
             <button className="theme" type="button" aria-pressed={dark}
               onClick={() => setTheme(dark ? 'light' : 'dark')}>
               <Icon name={dark ? 'sun' : 'moon'} size={16} />
@@ -284,8 +284,8 @@ export default function App() {
         <h1>{site.title}</h1>
         <p>{site.subtitle}</p>
         <div className="row">
-          <a className="btn" href={`#${apps[0]?.id ?? 'donasi'}`}>Lihat aplikasi</a>
-          <a className="btn btn-ghost" href="#donasi">Donasi sekarang</a>
+          <a className="btn" href={`#${apps[0]?.id ?? 'traktir kopi'}`}>Lihat aplikasi</a>
+          <a className="btn btn-ghost" href="#traktir kopi">traktir kopi sekarang</a>
         </div>
       </header>
 

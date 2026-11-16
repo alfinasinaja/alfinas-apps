@@ -36,10 +36,10 @@
       "platform": "Android",
       "features": ["MyUNPAM", "E-Learning Mentari", "Webview Satu UNPAM Apps"],
       "screenshots": [
-  "/screenshots/unpam-1.jpeg",
-  "/screenshots/unpam-2.jpeg",
-  "/screenshots/unpam-3.jpeg",
-  "/screenshots/unpam-4.jpeg"
+  "screenshots/unpam-1.jpeg",
+  "screenshots/unpam-2.jpeg",
+  "screenshots/unpam-3.jpeg",
+  "screenshots/unpam-4.jpeg"
 ]
     }
   ]

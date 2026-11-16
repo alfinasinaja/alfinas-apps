@@ -249,6 +249,8 @@ export default function App() {
   const [theme, setTheme] = useTheme();
   const [selectedId, setSelectedId] = useState('');
   const dark = theme === 'dark';
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   function pick(id) {
     setSelectedId(id);
@@ -257,12 +259,18 @@ export default function App() {
 
   return (
     <>
-      <nav className="nav" aria-label="Navigasi utama">
+      <nav className={`nav${menuOpen ? ' open' : ''}`} aria-label="Navigasi utama">
         <div className="nav-in">
-          <a className="brand" href="#top">{site.name}</a>
-          <div className="links">
-            {apps.map((a) => <a key={a.id} href={`#${a.id}`}>{a.navLabel}</a>)}
-            <a className="pill" href="#donasi">Donasi</a>
+          <a className="brand" href="#top" onClick={closeMenu}>{site.name}</a>
+          <button className="burger" type="button" aria-expanded={menuOpen} aria-controls="site-menu"
+            aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'} onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen
+              ? <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+              : <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>}
+          </button>
+          <div id="site-menu" className="links">
+            {apps.map((a) => <a key={a.id} href={`#${a.id}`} onClick={closeMenu}>{a.navLabel}</a>)}
+            <a className="pill" href="#donasi" onClick={closeMenu}>Donasi</a>
             <button className="theme" type="button" aria-pressed={dark}
               onClick={() => setTheme(dark ? 'light' : 'dark')}>
               <Icon name={dark ? 'sun' : 'moon'} size={16} />
